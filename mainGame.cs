@@ -34,7 +34,7 @@ namespace Mastermind_WindowsForms
         private const int PNL_WIDTH = 120;
         private const int PNL_HEIGHT = 371;
 
-        private int _nbrOfAttemps = 0; // NumBer of Attemps
+        int _nbrOfAttemps = 0; // NumBer of Attemps
 
         private int _nbrLabels = 0;  // Counter of Number of Labels
 
@@ -385,6 +385,12 @@ namespace Mastermind_WindowsForms
                 }
             }
 
+            // Check if color max are reached
+            if (_nbrOfAttemps >= COLOR_MAX)
+            {
+                DeactivateLlb();
+            }
+
             _nbrOfAttemps++; // Change label
 
             // Condition to disable labels if MAX
@@ -469,6 +475,8 @@ namespace Mastermind_WindowsForms
             }
             _nbrOfAttemps = 0; // Change label
 
+            ActivateLlb();
+
         }
         /// <summary>
         /// Checkbox for show the secret code
@@ -549,6 +557,7 @@ namespace Mastermind_WindowsForms
                     _pnlCheck[_rowChange, i].BackColor = Color.Red;
                 }
             }
+            
 
             // Check colors if exists
             for (int i = 0; i < COLOR_MAX; i++)
