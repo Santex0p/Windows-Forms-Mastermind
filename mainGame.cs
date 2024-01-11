@@ -575,7 +575,6 @@ namespace Mastermind_WindowsForms
                 }
             }
 
-
             // Unsort the colors of the current row
             ShuffleColors(_pnlCheck);
 
